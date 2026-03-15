@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Mustakuusi API
+  version: v1
+
+paths:
+  /games:
+    get:
+      summary: List games
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Game'
+
+  /characters:
+    get:
+      summary: List characters
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Character'
+
+components:
+  schemas:
+    Game:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        imageSrc:
+          type: string
+        date:
+          type: string
+          format: date-time
+          example: "2023-07-15T15:00:00+07:00"
+        description:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        detail:
+          type: array
+          items:
+            type: string
+        privacyPolicyLink:
+          type: string
+        downloadLink:
+          type: string
+        longDescription:
+          type: string
+        screenshots:
+          type: array
+          items:
+            type: string
+        characters:
+          type: array
+          items:
+            type: string
+
+    Character:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        imageSrc:
+          type: string
+        description:
+          type: string
